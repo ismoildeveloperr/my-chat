@@ -1,0 +1,11 @@
+.img1 {
+    width: 100%;
+    max-height: 650px;
+    object-fit: cover; /* чтобы изображение не искажалось */
+    border-radius: 8px; /* по желанию — скруглённые углы */
+}
+
+.profile {
+    padding: 20px;
+    text-align: center;
+}
