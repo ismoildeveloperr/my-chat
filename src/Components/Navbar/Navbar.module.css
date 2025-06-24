@@ -12,11 +12,16 @@
     height: 100%;
 }
 
-.navbar li a{
+.link {
     color: white;
     cursor: pointer;
     line-height: 50px;
     font-weight: bold;
     text-decoration: none;
     font-size: 20px;
+    display: block; /* чтобы кликабельная область занимала всю ширину */
+}
+
+.active {
+    font-size: 25px;
 }
