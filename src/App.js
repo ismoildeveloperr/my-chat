@@ -3,7 +3,7 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Profile from "./Components/Profile/Profile";
-import Messages from "./Components/Messages/Messages";
+import Dialogs from "./Components/Messages/Dialogs";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
@@ -17,7 +17,8 @@ function App() {
                 <div className="main-content">
                    <Routes>
                        <Route path='/profile' element={<Profile/>}/>
-                       <Route path='/messages' element={<Messages/>}/>
+                       <Route path='/messages' element={<Dialogs />} />
+                       <Route path='/messages/:id' element={<Dialogs />} />
                        <Route path='/news' element={<News/>}/>
                        <Route path='/music' element={<Music/>}/>
                        <Route path='/settings' element={<Settings/>}/>

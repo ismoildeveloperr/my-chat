@@ -9,3 +9,22 @@
     padding: 20px;
     text-align: center;
 }
+h1{
+    color: #428fcb;
+}
+.textarea{
+    width: 80%;
+    height: 400px;
+    padding: 10px;
+}
+.btn{
+    width: 40%;
+    height: 50px;
+    background-color: #428fcb;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    margin: 3%;
+}
