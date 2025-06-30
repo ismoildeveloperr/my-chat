@@ -6,6 +6,7 @@ import Posts from "../MyPosts/Post/Post";
 
 
 const Profile = () => {
+
     return (
         <div>
             <MyPosts/>

@@ -1,7 +1,7 @@
 // components/Dialogs/DialogItem.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./Messages.module.css";
+import styles from "../Messages.module.css";
 
 const DialogItem = ({ id, name }) => {
     const path = "/messages/" + id;
