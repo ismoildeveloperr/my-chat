@@ -1,4 +1,3 @@
-// components/Dialogs/DialogItem.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../Messages.module.css";

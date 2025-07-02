@@ -1,9 +1,8 @@
-// components/Dialogs/Message.jsx
 import React from "react";
 import styles from "./Messages.module.css";
 
-const Message = ({ messages }) => {
-    return <div className={styles.message}>{messages}</div>;
+const Message = ({ text }) => {
+    return <div className={styles.message}>{text}</div>;
 };
 
 export default Message;

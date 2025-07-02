@@ -5,11 +5,11 @@ import MyPosts from "../MyPosts/MyPosts";
 import Posts from "../MyPosts/Post/Post";
 
 
-const Profile = () => {
+const Profile = (props) => {
 
     return (
         <div>
-            <MyPosts/>
+            <MyPosts posts={props.posts} />
         </div>
     );
 };

@@ -7,10 +7,12 @@ import Dialogs from "./Components/Messages/Message/Dialogs";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
+import profile from "./Components/Profile/Profile";
 
 
-function App() {
+function App(props) {
+
     return (
         <HashRouter>
             <div className="app-wrapper">
@@ -18,12 +20,20 @@ function App() {
                 <Navbar/>
                 <div className="main-content">
                     <Routes>
-                        <Route path='/profile' element={<Profile />} />
-                        <Route path='/messages' element={<Dialogs />} />
-                        <Route path='/messages/:id' element={<Dialogs />} />
-                        <Route path='/news' element={<News />} />
-                        <Route path='/music' element={<Music />} />
-                        <Route path='/settings' element={<Settings />} />
+                        <Route path='/profile' element={<Profile posts={props.state.profilePage.postsData} />} />
+                        <Route path='/messages' element={
+                            <Dialogs
+                                dialogs={props.state.messagesPage.dialogsData}
+                                messages={props.state.messagesPage.messagesData}
+                            />
+                        }/>
+                        <Route path='/messages/:id' element={<Dialogs
+                            dialogs={props.state.messagesPage.dialogsData}
+                            messages={props.state.messagesPage.messagesData}
+                        />}/>
+                        <Route path='/news' element={<News/>}/>
+                        <Route path='/music' element={<Music/>}/>
+                        <Route path='/settings' element={<Settings/>}/>
                     </Routes>
                 </div>
                 <div className="main-footer">

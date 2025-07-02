@@ -3,13 +3,10 @@ import styles from "./MyPosts.module.css";
 import img1 from "../Profile/img/img1.png";
 import Posts from "./Post/Post";
 
-const MyPosts = () => {
-    const postsData = [
-        { id: 1, message: "Hi, how are you?", likeCount: 3 },
-        { id: 2, message: "It's my first post", likeCount: 5 },
-        { id: 3, message: "It's my second post", likeCount: 2 }
-    ];
+const MyPosts = (props) => {
 
+    let postsElemets =
+        props.posts.map(p => <Posts message={p.message} likesCount = {p.likesCount} />);
     return (
         <div>
             <div className={styles.profile}>
@@ -21,9 +18,10 @@ const MyPosts = () => {
                 <button className={styles.btn}>Add post</button>
             </div>
             <div className={styles.posts}>
-                {postsData.map(post => (
-                    <Posts key={post.id} message={post.message} likeCount={post.likeCount} />
-                ))}
+                {postsElemets}
+                {/*{postsData.map(post => (*/}
+                {/*    <Posts key={post.id} message={post.message} likeCount={post.likeCount} />*/}
+                {/*))}*/}
             </div>
         </div>
     );
