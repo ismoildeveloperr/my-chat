@@ -8,8 +8,6 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import {HashRouter, Route, Routes} from "react-router-dom";
-import profile from "./Components/Profile/Profile";
-
 
 function App(props) {
 
@@ -20,7 +18,13 @@ function App(props) {
                 <Navbar/>
                 <div className="main-content">
                     <Routes>
-                        <Route path='/profile' element={<Profile posts={props.state.profilePage.postsData} />} />
+                        <Route path='/profile' element={
+                            <Profile
+                            profilePage={props.state.profilePage}
+                            addPost={props.addPost}
+                            // newPostText={props.profilePage.newPostText}
+                            updateNewPostText={props.updateNewPostText}
+                        />} />
                         <Route path='/messages' element={
                             <Dialogs
                                 dialogs={props.state.messagesPage.dialogsData}

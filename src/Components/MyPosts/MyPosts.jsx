@@ -4,27 +4,52 @@ import img1 from "../Profile/img/img1.png";
 import Posts from "./Post/Post";
 
 const MyPosts = (props) => {
+    let postsElements = props.posts.map(p => (
+        <Posts
+            key={p.id}
+            message={p.message}
+            likeCount={p.likeCount}
+        />
+    ));
 
-    let postsElemets =
-        props.posts.map(p => <Posts message={p.message} likesCount = {p.likesCount} />);
+    const newPostElement = React.createRef();
+
+    let addPost = () => {
+        // let text = newPostElement.current.value;
+        props.addPost();
+        props.updateNewPostText('');
+    };
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
+        console.log(text);
+    };
+
     return (
         <div>
             <div className={styles.profile}>
-                <img className={styles.img1} src={img1} alt="Profile" />
+                <img className={styles.img1} src={img1} alt="Profile"/>
             </div>
             <div className={styles.profile}>
                 <h1>My posts</h1>
-                <textarea className={styles.textarea}></textarea><br />
-                <button className={styles.btn}>Add post</button>
+                <textarea
+                    className={styles.textarea}
+                    onChange={onPostChange}
+                    ref={newPostElement}
+                    value={props.newPostText}
+                />
+                <br/>
+                <button className={styles.btn} onClick={addPost}>Add post</button>
             </div>
+
             <div className={styles.posts}>
-                {postsElemets}
-                {/*{postsData.map(post => (*/}
-                {/*    <Posts key={post.id} message={post.message} likeCount={post.likeCount} />*/}
-                {/*))}*/}
+                {postsElements} <br/>
+                <b>Всего сообщений: {props.posts.length}</b>
             </div>
         </div>
     );
 };
+
 
 export default MyPosts;

@@ -7,10 +7,12 @@ const Posts = (props) => {
             <img
                 src={img}
             />
+
             {props.message}
             <div>
-                <span>like: {props.likeCount}</span>
+                <span>Нравится: {props.likeCount}❤️</span>
             </div>
+            <br/>
         </div>
     );
 };
