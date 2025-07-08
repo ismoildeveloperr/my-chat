@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import img1 from "../Profile/img/img1.png";
 import Posts from "./Post/Post";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../Redux/state";
+
+
 
 const MyPosts = (props) => {
     let postsElements = props.posts.map(p => (
@@ -16,14 +19,15 @@ const MyPosts = (props) => {
 
     let addPost = () => {
         // let text = newPostElement.current.value;
-        props.addPost();
-        props.updateNewPostText('');
+        props.dispatch(addPostActionCreator());
+        // props.updateNewPostText('');
     };
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-        console.log(text);
+        let action = updateNewPostTextActionCreator(text);
+        props.dispatch(action);
+        // console.log(text);
     };
 
     return (
