@@ -45,16 +45,16 @@ let store = {
                 likeCount: 0
             };
             this._state.profilePage.postsData.push(newPost);
-            // this._state.profilePage.newPostText = "";
+            this._state.profilePage.newPostText = "";
             this._callSubscriber(this._state);
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+        }else if (action.type === "UPDATE-NEW-POST-TEXT") {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
         }
     }
 };
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+    export const addPostActionCreator = () => ({type: ADD_POST});
+   export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 
 
 export default store;
