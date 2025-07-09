@@ -20,19 +20,19 @@ function App(props) {
                     <Routes>
                         <Route path='/profile' element={
                             <Profile
-                            profilePage={props.state.profilePage}
-                            dispatch={props.dispatch}
+                                profilePage={props.state.profilePage}
+                                dispatch={props.dispatch}
 
                         />} />
                         <Route path='/messages' element={
                             <Dialogs
-                                dialogs={props.state.messagesPage.dialogsData}
-                                messages={props.state.messagesPage.messagesData}
+                                state={props.state.messagesPage}
+                                dispatch={props.dispatch}
                             />
                         }/>
-                        <Route path='/messages/:id' element={<Dialogs
-                            dialogs={props.state.messagesPage.dialogsData}
-                            messages={props.state.messagesPage.messagesData}
+                        <Route path='/messages/:id' element={<Dialogs store={props.store}
+                                                                       dialogs={props.state.messagesPage.dialogsData}
+                                                                       messages={props.state.messagesPage.messagesData}
                         />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
