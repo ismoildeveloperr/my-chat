@@ -5,8 +5,7 @@ import Message from "../Message";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../../Redux/dialogs-reducer";
 
 const Dialogs = (props) => {
-    const state = props.state;
-
+    let state = props.store.getState().messagesPage;
     const dialogsElements = state.dialogsData.map(d => (
         <DialogItem key={d.id} name={d.name} id={d.id} />
     ));
@@ -18,12 +17,12 @@ const Dialogs = (props) => {
     const newMessageBody = state.newMessageBody;
 
     const onSendMessageClick = () => {
-        props.dispatch(sendMessageCreator());
+        props.sendMessage();
     };
 
     const onNewMessageChange = (e) => {
         const body = e.target.value;
-        props.dispatch(updateNewMessageBodyCreator(body));
+        props.updateNewMessageBody(body);
     };
 
     return (

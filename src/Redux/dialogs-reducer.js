@@ -3,10 +3,10 @@ const SEND_MESSAGE="SEND_MESSAGE";
 
 let initialState = {
     dialogsData: [
-        { id: 1, name: "Исмоил" },
-        { id: 2, name: "Фирдавс" },
-        { id: 3, name: "Фирӯз" },
-        { id: 4, name: "Шоҳин" }
+        { id: 1, name: "User1" },
+        { id: 2, name: "User2" },
+        { id: 3, name: "User3" },
+        { id: 4, name: "User4" }
     ],
         messagesData: [
         { id: 1, text: "Привет" },

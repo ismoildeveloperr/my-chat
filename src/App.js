@@ -8,6 +8,7 @@ import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import {HashRouter, Route, Routes} from "react-router-dom";
+import DialogsContainer from "./Components/Messages/Message/DialogsContainer";
 
 function App(props) {
 
@@ -22,20 +23,16 @@ function App(props) {
                             <Profile
                                 profilePage={props.state.profilePage}
                                 dispatch={props.dispatch}
+                                store={props.store}
 
                         />} />
-                        <Route path='/messages' element={
-                            <Dialogs
-                                state={props.state.messagesPage}
-                                dialogs={props.state.messagesPage.dialogsData}
-                                dispatch={props.dispatch}
-                            />
+                        <Route path="/messages" element={<DialogsContainer
+                            store={props.store} />} />
 
+                        <Route path='/messages/:id' element={
+                            <DialogsContainer store={props.store} />
                         }/>
-                        <Route path='/messages/:id' element={<Dialogs store={props.store}
-                                                                       dialogs={props.state.messagesPage.dialogsData}
-                                                                       messages={props.state.messagesPage.messagesData}
-                        />}/>
+
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>

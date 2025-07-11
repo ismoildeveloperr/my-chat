@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import img1 from "../Profile/img/img1.png";
 import Posts from "./Post/Post";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../Redux/profile-reducer";
 
 
 
@@ -17,17 +16,15 @@ const MyPosts = (props) => {
 
     const newPostElement = React.createRef();
 
-    let addPost = () => {
-        // let text = newPostElement.current.value;
-        props.dispatch(addPostActionCreator());
-        // props.updateNewPostText('');
+    let onAddPost = () => {
+        props.addPost();
+
     };
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action);
-        // console.log(text);
+        props.updateNewPostText(text);
+
     };
 
     return (
@@ -44,7 +41,7 @@ const MyPosts = (props) => {
                     value={props.newPostText}
                 />
                 <br/>
-                <button className={styles.btn} onClick={addPost}>Add post</button>
+                <button className={styles.btn} onClick={onAddPost}>Добавить пост</button>
             </div>
 
             <div className={styles.posts}>
