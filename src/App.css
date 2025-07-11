@@ -1,0 +1,28 @@
+.app-wrapper {
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "nav content"
+    "footer footer";
+    grid-template-rows: 70px 1fr auto;
+    grid-template-columns: 2fr 10fr;
+    gap: 10px;
+    min-height: 100vh; /* растягиваем на всю высоту экрана */
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+.main-content {
+    grid-area: content;
+    padding: 20px;
+}
+
+.main-footer {
+    grid-area: footer;
+}
