@@ -1,0 +1,20 @@
+.footer {
+    background-color: #428fcb;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid white;
+    text-align: center;
+}
+
+.textt {
+    flex: 1;
+    text-align: center;
+}
+
+.iconn {
+    display: flex;
+    gap: 15px;
+}
