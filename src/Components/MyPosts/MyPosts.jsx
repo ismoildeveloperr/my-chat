@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import img1 from "../Profile/img/img1.png";
 import Posts from "./Post/Post";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../Redux/store";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../Redux/profile-reducer";
 
 
 
