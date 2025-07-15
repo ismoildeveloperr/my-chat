@@ -1,28 +1,22 @@
-import reportWebVitals from './reportWebVitals';
-import store from "./Redux/redux-store";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Provider from "./StoreContext";
+import store from './Redux/redux-store';
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
+import reportWebVitals from './reportWebVitals';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const rerenderEntireTree = (state) => {
-    root.render(
-        <React.StrictMode>
+root.render(
+    <React.StrictMode>
+        <HashRouter>
             <Provider store={store}>
-            <App  />
-                </Provider>
-            </React.StrictMode>
-    );
-};
-
-rerenderEntireTree(store.getState());
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderEntireTree(state);
-});
-
-
+                <App />
+            </Provider>
+        </HashRouter>
+    </React.StrictMode>
+);
 
 reportWebVitals();
