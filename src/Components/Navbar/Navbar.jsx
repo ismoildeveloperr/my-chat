@@ -28,6 +28,16 @@ const Navbar = () => {
                 </li>
                 <li>
                     <NavLink
+                        to="/users"
+                        className={({isActive}) =>
+                            isActive ? `${styles.link} ${styles.active}` : styles.link
+                        }
+                    >
+                        <h3>👨‍💻 Пользователи </h3>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
                         to="/news"
                         className={({isActive}) =>
                             isActive ? `${styles.link} ${styles.active}` : styles.link

@@ -4,6 +4,7 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import Profile from "./Components/Profile/Profile";
+import UsersContainer from "./Components/Users/UsersContainer";
 import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
@@ -20,6 +21,7 @@ function App() {
                     <Route path='/profile' element={<Profile/>} />
                     <Route path="/messages" element={<DialogsContainer/>} />
                     <Route path='/messages/:id' element={<DialogsContainer/>} />
+                    <Route path='/users' element={<UsersContainer />} />
                     <Route path='/news' element={<News/>} />
                     <Route path='/music' element={<Music/>} />
                     <Route path='/settings' element={<Settings/>} />
