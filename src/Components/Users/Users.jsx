@@ -2,6 +2,7 @@ import React from "react";
 import styles from './Users.module.css';
 import userPhoto from '../../assets/images/man-avatar-image-for-profile-child-diverse-guy_693690_wh860.png'
 import {NavLink} from "react-router-dom";
+
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize); // ← исправлено
     let pages = [];
@@ -36,11 +37,30 @@ let Users = (props) => {
                                 alt=""
                             /></NavLink>
                         </div>
-                        <div>
-                            {u.followed
-                                ? <button onClick={() => props.unfollow(u.id)}>Unfollow</button>
-                                : <button onClick={() => props.follow(u.id)}>Follow</button>}
-                        </div>
+                       <div>
+  {u.followed ? (
+      <button
+          disabled={props.followingInProgress.some(id => id === u.id)}
+          onClick={() => {
+
+             props.unfollow(u.id);
+          }}
+      >
+          Unfollow
+      </button>
+  ) : (
+      <button
+          disabled={props.followingInProgress.some(id => id === u.id)}
+          onClick={() => {
+
+               props.follow(u.id);
+          }}
+      >
+          Follow
+      </button>
+  )}
+</div>
+
                     </span>
                     <span>
                         <span>

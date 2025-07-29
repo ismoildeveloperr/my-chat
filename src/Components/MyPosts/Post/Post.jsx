@@ -1,20 +1,17 @@
 import React from "react";
 import s from "./Post.module.css";
-import img from "./img/img1.jpg"
-const Posts = (props) => {
+import img from "./img/img1.jpg";
+
+const Post = ({ message, likeCount }) => {
     return (
         <div className={s.item}>
-            <img
-                src={img}
-            />
-
-            {props.message}
+            <img src={img} alt="post" />
+            <p>{message}</p>
             <div>
-                <span>Нравится: {props.likeCount}❤️</span>
+                <span>Нравится: {likeCount} ❤️</span>
             </div>
-            <br/>
         </div>
     );
 };
 
-export default Posts;
+export default Post;
