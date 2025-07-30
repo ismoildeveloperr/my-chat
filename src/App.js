@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import DialogsContainer from "./Components/Messages/Message/DialogsContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
-
+import Login from "./Components/Login/Login";
 function App() {
     return (
         <div className="app-wrapper">
@@ -24,6 +24,7 @@ function App() {
                     <Route path='/news' element={<News/>} />
                     <Route path='/music' element={<Music/>} />
                     <Route path='/settings' element={<Settings/>} />
+                    <Route path='/login' element={<Login/>} />
                 </Routes>
             </div>
             <div className="main-footer">
