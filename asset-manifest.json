@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-chat/static/css/main.72885905.css",
-    "main.js": "/my-chat/static/js/main.3bb1976e.js",
+    "main.js": "/my-chat/static/js/main.de42164f.js",
     "static/js/453.47b22e64.chunk.js": "/my-chat/static/js/453.47b22e64.chunk.js",
     "static/media/img1.png": "/my-chat/static/media/img1.0dab6300c5fea7f429ec.png",
     "static/media/man-avatar-image-for-profile-child-diverse-guy_693690_wh860.png": "/my-chat/static/media/man-avatar-image-for-profile-child-diverse-guy_693690_wh860.c3eaae1add1f8be5b36f.png",
@@ -10,11 +10,11 @@
     "index.html": "/my-chat/index.html",
     "static/media/loader.svg": "/my-chat/static/media/loader.f9f09144ff7b02aaeccd373f64a5b8b4.svg",
     "main.72885905.css.map": "/my-chat/static/css/main.72885905.css.map",
-    "main.3bb1976e.js.map": "/my-chat/static/js/main.3bb1976e.js.map",
+    "main.de42164f.js.map": "/my-chat/static/js/main.de42164f.js.map",
     "453.47b22e64.chunk.js.map": "/my-chat/static/js/453.47b22e64.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.72885905.css",
-    "static/js/main.3bb1976e.js"
+    "static/js/main.de42164f.js"
   ]
 }
