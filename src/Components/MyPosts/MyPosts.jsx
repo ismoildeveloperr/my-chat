@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
-import img1 from "../Profile/img/img1.png";
 import Posts from "./Post/Post";
 
 
@@ -29,9 +28,9 @@ const MyPosts = (props) => {
 
     return (
         <div>
-            <div className={styles.profile}>
-                <img className={styles.img1} src={img1} alt="Profile"/>
-            </div>
+            {/*<div className={styles.profile}>*/}
+            {/*    <img className={styles.img1} src={img1} alt="Profile"/>*/}
+            {/*</div>*/}
             <div className={styles.profile}>
                 <h1>My posts</h1>
                 <textarea
