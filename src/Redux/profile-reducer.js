@@ -11,7 +11,6 @@ let initialState = {
         { id: 2, message: "Как дела?", likeCount: 5 },
         { id: 3, message: "Это первый мой пост", likeCount: 2 }
     ],
-        newPostText: "My chat",
     profile:null,
     status: ""
 };
@@ -21,36 +20,30 @@ const profileReducer = (state =initialState, action) => {
     switch(action.type) {
         case ADD_POST:
             const newPost = {
-            id: state.postsData.length + 1,
-                message: state.newPostText,
-            likeCount: 0
-    };
-    let stateCopy = {...state};
-    stateCopy.postsData = [...state.postsData];
-    stateCopy.postsData.push(newPost);
-    stateCopy.newPostText = "";
+                id: state.postsData.length + 1,
+                message: action.newPostText,
+                likeCount: 0
+            };
+            let stateCopy = {...state};
+            stateCopy.postsData = [...state.postsData];
+            stateCopy.postsData.push(newPost);
+            stateCopy.newPostText = "";
             return stateCopy;
-    case UPDATE_NEW_POST_TEXT:{
-        let stateCopy = {...state};
-
-        stateCopy.newPostText = action.newText;
-        return stateCopy;
-    }
         case SET_STATUS:{
             return {
                 ...state,
                 status:action.status};
         }
-    case SET_USER_PROFILE:{
-        return {...state, profile: action.profile};
-    }
+        case SET_USER_PROFILE:{
+            return {...state, profile: action.profile};
+        }
         default:
             return state;
     }
 
 
 }
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText});
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const  setUserProfile=(profile)=>({type: SET_USER_PROFILE, profile});
 export const  setStatus=(status)=>({type: SET_STATUS, status});
@@ -68,10 +61,10 @@ export const  getStatus=(userId)=>(dispatch) =>{
 
 export const updateStatus=(status)=>(dispatch) =>{
     profileAPI.updateStatus(status).then(response => {
-       if(response.data.resultCode ===0){
-           dispatch(setStatus(status));
+        if(response.data.resultCode ===0){
+            dispatch(setStatus(status));
 
-       }
+        }
     });
 };
 

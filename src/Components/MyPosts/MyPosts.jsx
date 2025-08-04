@@ -1,55 +1,54 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
-import Posts from "./Post/Post";
+import Post from "./Post/Post";
+import { reduxForm, Field } from "redux-form";
+import { maxLengthCreator, required} from "../../utils/validators/validators";
+import {Textarea} from "../Common/FormsControls/FormControls";
 
+const maxLength20 = maxLengthCreator(20)
+
+function AddNewPostFormComponent(props) {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field validate={[required, maxLength20 ]}
+                    name="newPostText"
+                    component={Textarea}
+                    placeholder="Введите сообщение"
+                />
+                <br />
+                <button className={styles.btn} type="submit">Добавить пост</button>
+            </div>
+        </form>
+    );
+}
+
+const AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(AddNewPostFormComponent);
 
 
 const MyPosts = (props) => {
-    let postsElements = props.posts.map(p => (
-        <Posts
-            key={p.id}
-            message={p.message}
-            likeCount={p.likeCount}
-        />
+    const postsElements = props.posts.map(p => (
+        <Post key={p.id} message={p.message} likeCount={p.likeCount} />
     ));
 
-    const newPostElement = React.createRef();
-
-    let onAddPost = () => {
-        props.addPost();
-
-    };
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
-
+    const onAddPost = (values) => {
+        props.addPost(values.newPostText);
     };
 
     return (
         <div>
-            {/*<div className={styles.profile}>*/}
-            {/*    <img className={styles.img1} src={img1} alt="Profile"/>*/}
-            {/*</div>*/}
             <div className={styles.profile}>
                 <h1>My posts</h1>
-                <textarea
-                    className={styles.textarea}
-                    onChange={onPostChange}
-                    ref={newPostElement}
-                    value={props.newPostText}
-                />
-                <br/>
-                <button className={styles.btn} onClick={onAddPost}>Добавить пост</button>
+                <AddNewPostFormRedux onSubmit={onAddPost} />
             </div>
 
             <div className={styles.posts}>
-                {postsElements} <br/>
+                {postsElements}
+                <br />
                 <b>Всего сообщений: {props.posts.length}</b>
             </div>
         </div>
     );
 };
-
 
 export default MyPosts;

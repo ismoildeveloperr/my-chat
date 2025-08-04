@@ -53,7 +53,7 @@ const usersReducer = (state = initialState, action) => {
     }
 };
 
-// ACTION CREATORS
+
 export const followSuccess = (userId) => ({ type: FOLLOW, userId });
 export const unfollowSuccess = (userId) => ({ type: UNFOLLOW, userId });
 export const setUserAc = (users) => ({ type: SET_USERS, users });
@@ -66,7 +66,7 @@ export const toggleFollowingProgressAC = (isFetching, userId) => ({
     userId
 });
 
-// THUNKS
+
 export const getUsers = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFetchingAC(true));

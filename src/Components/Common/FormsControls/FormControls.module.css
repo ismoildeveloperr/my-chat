@@ -1,0 +1,17 @@
+.formControl {
+    margin-bottom: 10px;
+}
+
+.formControl textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.formControl.error textarea {
+    border: 2px solid red;
+}
+
+.formControl.error span {
+    color: red;
+    font-size: 12px;
+}
