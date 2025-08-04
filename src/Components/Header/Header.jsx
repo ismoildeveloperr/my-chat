@@ -10,7 +10,7 @@ const Header = (props) => {
             <h2>
                 Добро пожаловать на наш сайт {
                 props.login
-                    ? props.login
+                    ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div>
                     : <NavLink className={styles.loginblock} to="/login">Login</NavLink>
             }
             </h2>
