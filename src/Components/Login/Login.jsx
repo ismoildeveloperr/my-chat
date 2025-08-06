@@ -4,11 +4,12 @@ import {Field, reduxForm} from "redux-form";
 import {Input} from "../Common/FormsControls/FormControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
+import styles from '../Common/FormsControls/FormControls.module.css'
 import {login} from "../../Redux/auth-reducer";
 import {Navigate} from "react-router-dom";
+
 const LoginForm = (props) => {
     return (
-
         <form onSubmit={props.handleSubmit}>
             <div>
                 <Field placeholder="Электроный почта"
@@ -21,14 +22,18 @@ const LoginForm = (props) => {
             <div>
                 <Field type="checkbox" name={"rememberMe"} component={Input}/> Запомнить меня
             </div>
+            {props.error && <div className={styles.formsummaryerror}>
+                {props.error}
+            </div>
+            }
             <div>
                 <button className={style.buttonn}>Войти</button>
             </div>
         </form>
     )
 }
-const ReduxLoginForm = reduxForm({form: 'login'})(LoginForm)
 
+const ReduxLoginForm = reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
     const onSubmit = (formData)  => {
@@ -44,8 +49,10 @@ const Login = (props) => {
         </div>
     )
 }
+
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
 })
+
 export default connect(mapStateToProps, {login}) (Login);
 
