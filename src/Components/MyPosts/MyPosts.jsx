@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import { reduxForm, Field } from "redux-form";
@@ -26,29 +26,33 @@ function AddNewPostFormComponent(props) {
 const AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(AddNewPostFormComponent);
 
 
-const MyPosts = (props) => {
-    const postsElements = props.posts.map(p => (
-        <Post key={p.id} message={p.message} likeCount={p.likeCount} />
-    ));
+class MyPosts extends PureComponent {
+    render() {
+        console.log("hello world");
 
-    const onAddPost = (values) => {
-        props.addPost(values.newPostText);
-    };
+        const postsElements = this.props.posts.map(p => (
+            <Post key={p.id} message={p.message} likeCount={p.likeCount}/>
+        ));
 
-    return (
-        <div>
-            <div className={styles.profile}>
-                <h1>My posts</h1>
-                <AddNewPostFormRedux onSubmit={onAddPost} />
+        const onAddPost = (values)  => {
+            this.props.addPost(values.newPostText);
+        };
+
+        return (
+            <div>
+                <div className={styles.profile}>
+                    <h1>My posts</h1>
+                    <AddNewPostFormRedux onSubmit={onAddPost}/>
+                </div>
+
+                <div className={styles.posts}>
+                    {postsElements}
+                    <br/>
+                    <b>Всего сообщений: {this.props.posts.length}</b>
+                </div>
             </div>
-
-            <div className={styles.posts}>
-                {postsElements}
-                <br />
-                <b>Всего сообщений: {props.posts.length}</b>
-            </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default MyPosts;
