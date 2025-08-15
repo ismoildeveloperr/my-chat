@@ -1,5 +1,6 @@
 import profileReducer, { addPostActionCreator, deletePost } from "./profile-reducer";
 
+
 let state = {
     postsData: [
         { id: 1, message: "Привет", likeCount: 3 },
@@ -40,3 +41,7 @@ test('after deleting length of messages should be decrement', () => {
 //
 //     expect(newState.postsData.length).toBe(3);
 // });
+
+test('after1 deleting length of messages should be decrement', () => {
+
+});
