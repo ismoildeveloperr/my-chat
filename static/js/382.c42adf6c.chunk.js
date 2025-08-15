@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_chat=self.webpackChunkmy_chat||[]).push([[382],{8382:(c,e,s)=>{s.r(e),s.d(e,{default:()=>h});s(5043);var a=s(579);const h=()=>(0,a.jsx)("div",{children:"\u041c\u0435\u043d\u044e \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430"})}}]);
+//# sourceMappingURL=382.c42adf6c.chunk.js.map
