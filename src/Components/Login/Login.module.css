@@ -14,6 +14,31 @@ h1 {
     color: #333;
     margin-bottom: 20px;
 }
+.captchaWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 12px;
+}
+.captchaBox {
+    font-family: monospace;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 8px 12px;
+    border: 1px dashed #bbb;
+    border-radius: 8px;
+    user-select: none;
+}
+.refreshBtn {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f7f7f7;
+    cursor: pointer;
+}
+.refreshBtn:hover {
+    background: #efefef;
+}
 
 input[type="text"],
 input[type="password"] {
