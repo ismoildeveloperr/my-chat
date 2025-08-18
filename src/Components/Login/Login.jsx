@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './Login.module.css';
 import { reduxForm} from "redux-form";
 import {Input} from "../Common/FormsControls/FormControls";
@@ -10,10 +10,14 @@ import {Navigate} from "react-router-dom";
 import {CreateField} from "../Common/FormsControls/FormControls";
 
 const LoginForm = ({handleSubmit, error}) => {
+    const [password, setPassword] = useState("");
     return (
         <form onSubmit={handleSubmit}>
                 {CreateField("Email", "email", [required], Input)}
-                {CreateField("Password", "password", [required], Input, {type: "password"})}
+            {CreateField("Password", "password", [required], Input, {
+                type: "password",
+                onChange: (e) => setPassword(e.target.value)
+            })}
                 {CreateField(null, "rememberMe", [], Input, {type: "checkbox"}, "remeber me")}
 
             {error && <div className={styles.formsummaryerror}>
@@ -21,7 +25,9 @@ const LoginForm = ({handleSubmit, error}) => {
             </div>
             }
             <div>
-                <button className={style.buttonn}>Войти</button>
+                <button
+                    disabled={password.length < 6}
+                    className={style.buttonn}>Войти</button>
             </div>
         </form>
     )

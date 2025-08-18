@@ -17,11 +17,7 @@ const Music = React.lazy(() => import("./Components/Music/Music"));
 const Settings = React.lazy(() => import("./Components/Settings/Settings"));
 const Login = React.lazy(() => import("./Components/Login/Login"));
 
-const LoadingText = () => (
-    <div>
-        Загрузка...
-    </div>
-);
+const LoadingText = () => <div>Загрузка...</div>;
 
 class App extends Component {
     componentDidMount() {
@@ -29,7 +25,6 @@ class App extends Component {
     }
 
     render() {
-        // Показ прелоадера при инициализации приложения
         if (!this.props.initialized) {
             return <Preloader />;
         }
@@ -40,11 +35,20 @@ class App extends Component {
                 <Navbar />
                 <div className="main-content">
                     <Routes>
+                        {/* Роут для своего профиля */}
+                        <Route path="/profile" element={
+                            <Suspense fallback={<LoadingText />}>
+                                <ProfileContainer />
+                            </Suspense>
+                        } />
+
+                        {/* Роут для чужого профиля */}
                         <Route path="/profile/:userId" element={
                             <Suspense fallback={<LoadingText />}>
                                 <ProfileContainer />
                             </Suspense>
                         } />
+
                         <Route path="/messages" element={
                             <Suspense fallback={<LoadingText />}>
                                 <DialogsContainer />

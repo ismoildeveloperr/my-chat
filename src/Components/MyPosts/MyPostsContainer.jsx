@@ -1,6 +1,6 @@
+import { connect } from "react-redux";
 import { addPostActionCreator } from "../../Redux/profile-reducer";
 import MyPosts from "./MyPosts";
-import { connect } from "react-redux";
 
 const mapStateToProps = (state) => ({
     posts: state.profilePage.postsData,
@@ -12,5 +12,4 @@ const mapDispatchToProps = (dispatch) => ({
     },
 });
 
-const MyPostContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
-export default MyPostContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(MyPosts);
